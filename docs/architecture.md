@@ -1,4 +1,6 @@
-# 云端版系统架构与实现逻辑
+# Cloud 版系统架构
+
+![系统架构图](../assets/architecture-cloud.png)
 
 ## 1. 总体调用链
 

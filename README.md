@@ -18,30 +18,15 @@ FastAPI 后端运行在云服务器（Docker），通过 Tailscale 与无线 ADB
 
 ## 系统架构
 
-```mermaid
-flowchart TB
-    subgraph Phone["Android 手机"]
-        App["Mobile App"]
-        TS["Tailscale"]
-    end
+![系统架构图](assets/architecture-cloud.png)
 
-    subgraph Cloud["云服务器 Docker"]
-        API["FastAPI Server"]
-        Agent["Open-AutoGLM PhoneAgent"]
-        ADBc["adb connect"]
-    end
+**数据流简述：**
 
-    VLM["智谱 autoglm-phone"]
+1. App 通过公网 HTTP 访问云服务器 FastAPI
+2. Docker 容器内 PhoneAgent 经 Tailscale / 远程无线 ADB 连接手机
+3. 截图 → 智谱模型决策 → 远程 ADB 执行 → Trace 回传 App
 
-    App -->|"HTTP 公网:8000"| API
-    API --> Agent
-    Agent <--> VLM
-    Agent --> ADBc
-    ADBc <-->|"Tailscale 虚拟网"| TS
-    TS --> Phone
-```
-
-本地电脑在运行时**不需要**保持开启；仅在部署维护或重新配置手机 ADB 时可能需要。
+本地电脑在运行时不需要保持开启。
 
 ---
 
@@ -82,9 +67,11 @@ curl http://127.0.0.1:8000/health
 
 ## 演示视频
 
-[GitHub Releases](https://github.com/ginny-pjj/CLOUD-Autoglm-Mobile-Copilot/releases)
+Cloud 版演示视频见 [GitHub Releases](https://github.com/ginny-pjj/CLOUD-Autoglm-Mobile-Copilot/releases)（上传后在此替换为直链）。
 
 推荐演示任务：`打开美团搜索蜜雪冰城`
+
+[系列说明](https://github.com/ginny-pjj/USB-Autoglm-Mobile-Copilot/blob/main/SERIES.md)
 
 ---
 
