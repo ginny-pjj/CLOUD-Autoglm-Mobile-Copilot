@@ -61,7 +61,3 @@ POST /tasks { task, mode: real }
 - 非交互环境跳过 `Take_over` 的人工输入。
 - 支持 UI Tree 辅助定位。
 - 针对美团搜索增加专项快路径。
-
-## 6. 展示时可讲的一句话
-
-> 这个版本把 Open-AutoGLM Phone Agent 部署到云服务器上，手机 App 通过公网发任务，云端再通过 Tailscale 远程 ADB 控制真实手机，实现无需本地电脑参与的手机 Agent Demo。

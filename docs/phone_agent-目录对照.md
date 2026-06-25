@@ -41,12 +41,6 @@ mobile-app/                   # Android 控制端
 App → 云 FastAPI → Open-AutoGLM/main.py → phone_agent/ → 远程 ADB → 手机
 ```
 
----
-
-## 5. 答辩一句话
-
-> Agent 内核沿用 Open-AutoGLM；Cloud 版主要解决远程截图慢、Take_over 非交互、Docker 部署和跨网 ADB，是投入时间最多的工程扩展。
-
 系列总览 → [USB 主仓库 SERIES.md](https://github.com/ginny-pjj/USB-Autoglm-Mobile-Copilot/blob/main/SERIES.md)
 
 完整对照表（含官方文件树）→ [USB 仓库完整版](https://github.com/ginny-pjj/USB-Autoglm-Mobile-Copilot/blob/main/docs/phone_agent-目录对照.md)
