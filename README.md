@@ -67,11 +67,13 @@ curl http://127.0.0.1:8000/health
 
 ## 演示视频
 
-Cloud 版演示视频见 [GitHub Releases](https://github.com/ginny-pjj/CLOUD-Autoglm-Mobile-Copilot/releases)（上传后在此替换为直链）。
+**[观看 Cloud 版演示视频](https://github.com/ginny-pjj/CLOUD-Autoglm-Mobile-Copilot/releases/download/demo-cloud/CLOUD-demo.mp4)**
+
+视频包含：App 公网发任务 → 云端远程 ADB 控制手机 → Agent Trace 与结果。
 
 推荐演示任务：`打开美团搜索蜜雪冰城`
 
-[系列说明](https://github.com/ginny-pjj/USB-Autoglm-Mobile-Copilot/blob/main/SERIES.md)
+[Releases](https://github.com/ginny-pjj/CLOUD-Autoglm-Mobile-Copilot/releases) · [系列说明](https://github.com/ginny-pjj/USB-Autoglm-Mobile-Copilot/blob/main/SERIES.md)
 
 ---
 
