@@ -1,0 +1,28 @@
+services:
+  autoglm-server:
+    build: .
+    container_name: autoglm-mobile-copilot
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - server/.env.cloud
+    command: ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      AUTOGLM_WORK_ROOT: /app
+      AUTOGLM_DIR: /app/Open-AutoGLM
+      ADB_PATH: /usr/bin/adb
+      ADB_CONNECT_ADDRESS: ${ADB_CONNECT_ADDRESS:-}
+      PHONE_AGENT_DEVICE_ID: ${PHONE_AGENT_DEVICE_ID:-}
+      PHONE_AGENT_ADB_CMD_TIMEOUT: ${PHONE_AGENT_ADB_CMD_TIMEOUT:-120}
+      PHONE_AGENT_SCREENSHOT_EXEC_OUT: ${PHONE_AGENT_SCREENSHOT_EXEC_OUT:-true}
+      PHONE_AGENT_SCREENSHOT_TIMEOUT: ${PHONE_AGENT_SCREENSHOT_TIMEOUT:-120}
+      PHONE_AGENT_SCREENSHOT_MAX_LONG_EDGE: ${PHONE_AGENT_SCREENSHOT_MAX_LONG_EDGE:-360}
+      PHONE_AGENT_SKIP_KEYBOARD_CHECK: ${PHONE_AGENT_SKIP_KEYBOARD_CHECK:-true}
+      PHONE_AGENT_KEEP_ADB_KEYBOARD: ${PHONE_AGENT_KEEP_ADB_KEYBOARD:-true}
+      PHONE_AGENT_FAIL_ON_TAKEOVER: ${PHONE_AGENT_FAIL_ON_TAKEOVER:-false}
+    volumes:
+      - adb-data:/root/.android
+
+volumes:
+  adb-data:
